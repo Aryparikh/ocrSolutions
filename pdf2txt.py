@@ -2,6 +2,11 @@
 Author @Aryamaan Parikh
 
 Python 2.7
+
+Note : When using pdfMiner for non english languages, it replaces all non-english characters with a ' ' (space).
+Factor this in if you are going to do document search with this solution.
+Or, change the encoding from ASCII to ISO8859, which supports those characters.
+
 """
 
 from pypdfocr.pypdfocr import PyPDFOCR
@@ -44,7 +49,7 @@ def vecTextExtractor(vecPath):  # This converts Scanned docs to vectorized docs 
 
 
 # converts pdf, returns its text content as a string
-
+# GOOD FOR NON-ENGLISH Languages
 def convertWithPdfMiner(fname):
         pages_text = []
         rsrcmgr = PDFResourceManager()
